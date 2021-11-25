@@ -28,6 +28,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
+    @Transactional
     public Role findRole(Role role) {
         return roleDao.findRole(role);
     }
