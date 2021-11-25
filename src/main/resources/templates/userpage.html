@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="en">
+<head>
+  <title>Show User</title>
+</head>
+<body>
+User data
+<br/>
+<br/>
+
+<tr th:each="user, state : ${showUser}">
+  <th>Name:</th></th><td th:utext="${showUser.getName()}"></td><br/>
+  <th>Surname:</th><td th:utext="${showUser.getSurname()}"></td><br/>
+  <th>Email:</th><td th:utext="${showUser.getEmail()}"></td><br/>
+  <th>Login:</th><td th:utext="${showUser.getLogin()}"></td><br/>
+  <th>Password:</th><td th:utext="${showUser.getPassword()}"></td><br/>
+  <th>Role:</th><td th:utext="${showUser.getRoles()}"></td><br/></tr>
+<br/>
+</td>
+<a type="button" th:href="@{/}"> Exit </a>
+</td>
+
+</body>
+</html>

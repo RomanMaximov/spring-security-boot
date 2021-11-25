@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="en">
+<head>
+  <title>Show all users</title>
+</head>
+<body>
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Email</th>
+    <th>Login</th>
+    <th>Password</th>
+    <th>Role</th>
+  </tr>
+
+  <tr th:each="user, state : ${users}">
+    <td th:utext="${user.getName()}"></td>
+    <td th:utext="${user.getSurname()}"></td>
+    <td th:utext="${user.getEmail()}"></td>
+    <td th:utext="${user.getLogin()}"></td>
+    <td th:utext="${user.getPassword()}"></td>
+    <td th:utext="${user.getRoles()}"></td>
+    <td>
+      <form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">
+        <input type="submit" value="Delete"/>
+      </form>
+    </td>
+    <td>
+      <form th:action="@{/admin/{id}/edit(id=${user.getId()})}">
+       <input type="submit" value="Update"/>
+      </form>
+    </td>
+  </tr>
+</table>
+<br/>
+<br/>
+</td>
+<a type="button" th:href="@{/admin/adduser/}"> Add user </a>
+</td>
+<br/>
+<br/>
+</td>
+<a type="button" th:href="@{/}"> Exit </a>
+</td>
+</body>
+</html>
