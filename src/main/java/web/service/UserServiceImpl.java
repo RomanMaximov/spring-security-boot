@@ -18,8 +18,8 @@ import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService{
-    private PasswordEncoder passwordEncoder;
-    private UserDao userDao;
+    private final PasswordEncoder passwordEncoder;
+    private final UserDao userDao;
 
     @Autowired
     public UserServiceImpl(@Lazy UserDao userDao, @Lazy PasswordEncoder passwordEncoder) {

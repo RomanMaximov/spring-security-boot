@@ -5,15 +5,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web.dao.RoleDao;
 import web.model.Role;
-
 import java.util.Set;
 
 @Service
-public class RoleServiseImpl implements RoleService {
+public class RoleServiceImpl implements RoleService {
     private RoleDao roleDao;
 
     @Autowired
-    public RoleServiseImpl(RoleDao roleDao) {
+    public RoleServiceImpl(RoleDao roleDao) {
         this.roleDao = roleDao;
     }
 

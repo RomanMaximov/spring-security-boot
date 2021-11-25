@@ -21,7 +21,7 @@ public class RoleDaoImpl implements RoleDao {
     }
     @Override
     public Set<Role> getAllRoles() {
-        return (Set<Role>) em.createQuery("select r from Role r").getResultList().stream().collect(Collectors.toSet());
+        return em.createQuery("select r from Role r",Role.class).getResultList().stream().collect(Collectors.toSet());
     }
 
     @Override
