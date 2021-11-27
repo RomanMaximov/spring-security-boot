@@ -20,11 +20,11 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/page")
+    @GetMapping("/upage")
     public String getPrincipal(@CurrentSecurityContext(expression = "authentication")
                                            Authentication authentication,
                                            Model model) {
-        model.addAttribute("showUser", userService.loadUserByUsername(authentication.getName()));
+        model.addAttribute("showUser", userService.getUserByUsername(authentication.getName()));
         return "userpage";
     }
 }

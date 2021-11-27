@@ -30,11 +30,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User myUser= getUserByUsername(userName);
-        if (myUser == null) {
-            throw new UsernameNotFoundException("Unknown user: "+userName);
-        }
+    public UserDetails loadUserByUsername(String userName) {
+        User myUser = getUserByUsername(userName);
         List<GrantedAuthority> roleList = getAuthoritiesEntities(myUser.getRoles());
         org.springframework.security.core.userdetails.User usd = new org.springframework.security.core.userdetails.User(myUser.getLogin(), myUser.getPassword(), roleList);
         return usd;
