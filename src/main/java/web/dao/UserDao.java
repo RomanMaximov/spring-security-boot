@@ -13,6 +13,6 @@ public interface UserDao {
     UserDetails loadUserByUsername(String userName);
     void delete(int id);
     List<User> getAllUsers();
-    void addUser(User user, Set<Role> roles);
+    void addUser(User user);
     void update(User user);
 }

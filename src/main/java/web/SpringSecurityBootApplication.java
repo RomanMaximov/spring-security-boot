@@ -39,18 +39,15 @@ public class SpringSecurityBootApplication {
         user2.setLogin("user");
         user2.setPassword("101");
 
-        String s1 = "ROLE_ADMIN";
-        String s2 = "ROLE_USER";
-        Role role1 = new Role(s1);
-        Role role2 = new Role(s2);
+        Role role1 = new Role("ROLE_ADMIN");
+        Role role2 = new Role("ROLE_USER");
         Set<Role> setStartRoles = new HashSet<>();
         setStartRoles.add(role1);
-        Set<Role> set2 = new HashSet<>();
         setStartRoles.add(role2);
-        set2.add(role2);
         roleService.saveRole(setStartRoles);
-        userService.addUser(user1, setStartRoles.stream().limit(1).collect(Collectors.toSet()));
-        userService.addUser(user2, set2);
+        user1.setRoles(roleService.getAllRoles());
+        userService.addUser(user1);
+        user2.setRoles(roleService.getAllRoles().stream().limit(1).collect(Collectors.toSet()));
+        userService.addUser(user2);
     }
-
 }
