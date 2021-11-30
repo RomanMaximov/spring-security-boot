@@ -20,7 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/upage")
+    @GetMapping("/page")
     public String getPrincipal(@CurrentSecurityContext(expression = "authentication")
                                            Authentication authentication,
                                            Model model) {
