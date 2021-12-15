@@ -54,8 +54,15 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void addUser(User user) {
+    public void addUser(User user, Set<Role> roles) {
         em.persist(user);
+        Set<Role> roleForSaveUser = new HashSet<>();
+        for(Role role: roles) {
+            roleForSaveUser.add(em.createQuery("SELECT r FROM Role r WHERE r.name=:name", Role.class)
+                    .setParameter("name", role.toString())
+                    .getSingleResult());
+        }
+        user.setRoles(roleForSaveUser);
     }
 
     @Override

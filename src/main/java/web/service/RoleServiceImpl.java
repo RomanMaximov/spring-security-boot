@@ -26,10 +26,4 @@ public class RoleServiceImpl implements RoleService {
     public Set<Role> getAllRoles() {
         return roleDao.getAllRoles();
     }
-
-    @Override
-    @Transactional
-    public Role findRole(Role role) {
-        return roleDao.findRole(role);
-    }
 }

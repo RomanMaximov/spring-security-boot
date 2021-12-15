@@ -54,7 +54,7 @@ public class AdminController {
 
     @PostMapping("/createuser")
     public String createNewUser(@ModelAttribute("user") User user, ModelMap model) {
-        userservice.addUser(user);
+        userservice.addUser(user, user.getRoles());
         model.addAttribute("users", userservice.getAllUsers());
         return "redirect:/admin/page";
     }
